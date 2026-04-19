@@ -5,7 +5,7 @@
     platform is used by operations teams to manage support tickets and
     internal workflows. Inspect the application source code and accessible
     files for any exposed usernames or access clues. Once authenticated,
-    explore the backend API surface — the application may expose more than
+    explore the backend API surface, the application may expose more than
     just the visible UI endpoints. Your objective is to retrieve the
     Emergency Override Key used for internal escalation workflows.
   tactic: credential-access
@@ -18,16 +18,13 @@
     - name: sh
       platform: linux
       command: |
-        git clone https://github.com/hacktifytechnologies/SupportSphere /opt/hacktify/SupportSphere
-        cd /opt/hacktify/SupportSphere
-        chmod +x setup.sh
-        bash setup.sh -a
+        git clone https://github.com/hacktifytechnologies/SupportSphere /opt/hacktify/SupportSphere && cd /opt/hacktify/SupportSphere && docker compose up -d --build && echo 'Lab deployment complete'
       code: null
       language: null
       build_target: null
       payloads: []
       uploads: []
-      timeout: 300
+      timeout: 600
       parsers: []
       cleanup: []
       variations: []
