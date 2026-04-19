@@ -1,0 +1,35 @@
+- name: 'HACKTIFY: Setup SupportSphere Lab'
+  id: ddb181c6-e7c7-9ff7-8519-e132c81722cb
+  description: >-
+    An internal support management platform is running on port 8089. The
+    platform is used by operations teams to manage support tickets and
+    internal workflows. Inspect the application source code and accessible
+    files for any exposed usernames or access clues. Once authenticated,
+    explore the backend API surface — the application may expose more than
+    just the visible UI endpoints. Your objective is to retrieve the
+    Emergency Override Key used for internal escalation workflows.
+  tactic: credential-access
+  technique_id: T1110.001
+  technique_name: 'Brute Force: Password Guessing'
+  singleton: true
+  repeatable: false
+  delete_payload: false
+  executors:
+    - name: sh
+      platform: linux
+      command: |
+        git clone https://github.com/hacktifytechnologies/SupportSphere /opt/hacktify/SupportSphere
+        cd /opt/hacktify/SupportSphere
+        chmod +x setup.sh
+        bash setup.sh -a
+      code: null
+      language: null
+      build_target: null
+      payloads: []
+      uploads: []
+      timeout: 300
+      parsers: []
+      cleanup: []
+      variations: []
+      additional_info: {}
+  requirements: []

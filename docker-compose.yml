@@ -1,0 +1,10 @@
+services:
+  support-sphere:
+    build: .
+    image: hacktify/support-sphere:1.0
+    container_name: support-sphere
+    ports:
+      - "8089:8087"
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
