@@ -1,6 +1,5 @@
 services:
   support-sphere:
-    build: .
     image: hacktify/support-sphere:1.0
     container_name: support-sphere
     ports:
